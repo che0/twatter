@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div><a href="{% url post_twat %}">post a new twat</a></div>
+
+{% for twat in twat_list %}
+<div>
+<img src="{{STATIC_URL}}moods/{{twat.mood}}.png" style="float:left">
+<div style="font-size: 1.7em">{{twat.author}}: {{twat.text}}</div>
+<div style="font-size: 0.7em">{{twat.date|timesince}} ago</div>
+<br clear="both">
+</div>
+{% endfor %}
+{% endblock %}
