@@ -25,5 +25,5 @@ class PostTwat(CreateView):
     
     def form_valid(self, form):
         response = super(PostTwat, self).form_valid(form)
-        response.set_cookie('twatter_user', form.cleaned_data['author'])
+        response.set_cookie('twatter_user', form.cleaned_data['author'], max_age=3600*24*90)
         return response
