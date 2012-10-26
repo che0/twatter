@@ -3,11 +3,11 @@ from django.db import models
 
 MOOD_CHOICES = [
     'happy', 'plain', 'sad', 'rage',
-    'fuck-yea', 'bitch-please', 'challenge-accepted',
+    'fuck-yea', 'bitch-please', 'cereal-guy', 'challenge-accepted',
     'everything-went-better', 'fap-guy', 'forever-alone', 'freddie',
     'fuck-yea', 'happy-guy', 'le-sir', 'lol-guy', 'me-gusta',
-    'mother-of-god', 'not-bad', 'nothing-to-do-here', 'pffcht',
-    'poker-face', 'ragegirl', 'serious', 'so-close',
+    'mother-of-god', 'not-bad', 'nothing-to-do-here', 'okay', 'pffcht',
+    'poker-face', 'ragegirl', 'serious', 'so-close', 'trollface',
     'true-story', 'whatever', 'you-dont-say', 'y-u-no'
 ]
 

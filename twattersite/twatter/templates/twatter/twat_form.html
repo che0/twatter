@@ -15,14 +15,22 @@ $(document).ready(function() {
 		$('#triangle').html('▼');
 		$(this).after('<div id="mood_selector"></div>');
 		{% for mood in moods %}
-		$('#mood_selector').append('<img src="{{STATIC_URL}}moods/{{mood}}.png" data-mood="{{mood}}">');
-		{% endfor %}
-		$('#mood_selector img').click(function() {
-			$('#id_mood').val($(this).attr('data-mood'));
+		var img = $('<img>').attr('src', '{{STATIC_URL}}moods/{{mood}}.png');
+		img.click(function() {
+			$('#id_mood').val('{{mood}}');
 			$('#mood_selector').remove();
 			$('#triangle').html('▶');
 			return false;
 		});
+		{% if mood == "forever-alone" %}
+		img.css({
+			position: 'absolute',
+			bottom: '0px',
+			right: '0px'
+		});
+		{% endif %}
+		$('#mood_selector').append(img);
+		{% endfor %}
 		return false;
 	});
 });
