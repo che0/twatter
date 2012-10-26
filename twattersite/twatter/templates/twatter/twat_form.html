@@ -1,5 +1,34 @@
 {% extends "base.html" %}
 
+{% block head %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script type="text/javascript"><!--
+$(document).ready(function() {
+	$('#id_mood').after(' <a href="#" id="extend_mood">choose by image <span id="triangle">▶</span></a>');
+	$('#extend_mood').click(function() {
+		if ($('#mood_selector').length > 0)
+		{
+			$('#mood_selector').remove();
+			$('#triangle').html('▶');
+			return false;
+		}
+		$('#triangle').html('▼');
+		$(this).after('<div id="mood_selector"></div>');
+		{% for mood in moods %}
+		$('#mood_selector').append('<img src="{{STATIC_URL}}moods/{{mood}}.png" data-mood="{{mood}}">');
+		{% endfor %}
+		$('#mood_selector img').click(function() {
+			$('#id_mood').val($(this).attr('data-mood'));
+			$('#mood_selector').remove();
+			$('#triangle').html('▶');
+			return false;
+		});
+		return false;
+	});
+});
+--></script>
+{% endblock %}
+
 {% block content %}
 <div><a href="{% url list_twats %}">back</a></div>
 

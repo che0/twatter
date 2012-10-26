@@ -2,7 +2,7 @@
 from django.http import HttpResponseRedirect
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView
-from twatter.models import Twat
+from twatter.models import Twat, MOOD_CHOICES
 
 class ListTwats(ListView):
     model = Twat
@@ -27,3 +27,8 @@ class PostTwat(CreateView):
         response = super(PostTwat, self).form_valid(form)
         response.set_cookie('twatter_user', form.cleaned_data['author'], max_age=3600*24*90)
         return response
+    
+    def get_context_data(self, **kwargs):
+        context = super(PostTwat, self).get_context_data(**kwargs)
+        context['moods'] = MOOD_CHOICES
+        return context
