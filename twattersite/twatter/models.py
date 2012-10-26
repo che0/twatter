@@ -1,7 +1,15 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 
-MOOD_CHOICES = ('happy', 'plain', 'sad', 'rage')
+MOOD_CHOICES = [
+    'happy', 'plain', 'sad', 'rage',
+    'fuck-yea', 'bitch-please', 'challenge-accepted',
+    'everything-went-better', 'fap-guy', 'forever-alone', 'freddie',
+    'fuck-yea', 'happy-guy', 'le-sir', 'lol-guy', 'me-gusta',
+    'mother-of-god', 'not-bad', 'nothing-to-do-here', 'pffcht',
+    'poker-face', 'ragegirl', 'serious', 'so-close',
+    'true-story', 'whatever', 'you-dont-say', 'y-u-no'
+]
 
 class Twat(models.Model):
     date = models.DateTimeField(auto_now_add=True)
