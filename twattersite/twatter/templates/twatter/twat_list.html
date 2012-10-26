@@ -5,7 +5,7 @@
 
 {% for twat in twat_list %}
 <div>
-<img src="{{STATIC_URL}}moods/{{twat.mood}}.png" style="float:left">
+<img src="{{STATIC_URL}}moods/{{twat.mood}}.png" style="float:left; margin-right: 10px;">
 <div style="font-size: 1.7em">{{twat.author}}: {{twat.text}}</div>
 <div style="font-size: 0.7em">{{twat.date|timesince}} ago</div>
 <br clear="both">
