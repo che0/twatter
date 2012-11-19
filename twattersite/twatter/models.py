@@ -8,7 +8,7 @@ MOOD_CHOICES = [
     'fuck-yea', 'happy-guy', 'le-sir', 'lol-guy', 'me-gusta',
     'mother-of-god', 'not-bad', 'nothing-to-do-here', 'okay', 'pffcht',
     'poker-face', 'ragegirl', 'serious', 'so-close', 'trollface',
-    'true-story', 'whatever', 'you-dont-say', 'y-u-no'
+    'true-story', 'whatever', 'you-dont-say', 'y-u-no', 'all-the-things'
 ]
 
 class Twat(models.Model):
