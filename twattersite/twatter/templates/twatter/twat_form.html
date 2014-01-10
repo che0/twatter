@@ -38,7 +38,7 @@ $(document).ready(function() {
 {% endblock %}
 
 {% block content %}
-<div><a href="{% url list_twats %}">back</a></div>
+<div><a href="{% url "list_twats" %}">back</a></div>
 
 <form method="POST" action="">
 <table>{{form}}</table>
