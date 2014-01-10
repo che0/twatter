@@ -20,7 +20,7 @@ class Twat(models.Model):
     text = models.TextField()
 
     def __unicode__(self):
-        return u'@%s (%s): %s' % (self.author, self.mood, self.text)
+        return u'@%s (%s.jpg): %s' % (self.author, self.mood, self.text)
     
     class Meta:
         ordering = ['-date']

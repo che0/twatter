@@ -7,4 +7,5 @@ from twatter.views import PostTwat, ListTwats
 urlpatterns = patterns('',
     url(r'^$', ListTwats.as_view(), name='list_twats'),
     url(r'^post/$', PostTwat.as_view(), name='post_twat'),
+    url(r'^last/$', 'twatter.views.last'),
 )

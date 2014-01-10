@@ -1,8 +1,13 @@
 # -*- coding: utf-8 -*-
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView
 from twatter.models import Twat, MOOD_CHOICES
+
+try:
+    from unidecode import unidecode
+except ImportError:
+    unidecode = lambda x: unicode(x).encode('ascii', 'replace')
 
 class ListTwats(ListView):
     model = Twat
@@ -32,3 +37,11 @@ class PostTwat(CreateView):
         context = super(PostTwat, self).get_context_data(**kwargs)
         context['moods'] = MOOD_CHOICES
         return context
+
+def last(request):
+    twats = Twat.objects.all()[:1]
+    if len(twats) < 1:
+        return HttpResponse('no twats yet', 'text/plain')
+    
+    twat = twats[0]
+    return HttpResponse(unidecode(unicode(twat)), 'text/plain')
